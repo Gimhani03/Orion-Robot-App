@@ -10,6 +10,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ChooseTopicScreen from './src/screens/ChooseTopicScreen';
 import AboutScreen from './src/screens/AboutScreen';
+import ReminderScreen from './src/screens/ReminderScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="ChooseTopic" component={ChooseTopicScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Reminder" component={ReminderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
