@@ -30,14 +30,14 @@ export default function AboutScreen({ navigation }) {
       id: 4,
       name: 'VEE',
       image: require('../../assets/robots/vee.jpg'),
-      backgroundColor: '#facc15',
+      backgroundColor: '#fcd9ac',
       description: 'Venus environment specialist'
     },
     {
       id: 5,
       name: 'SATU',
       image: require('../../assets/robots/satu.jpg'),
-      backgroundColor: '#fb923c',
+      backgroundColor: '#e8b176',
       description: 'Jupiter research assistant'
     },
     {
@@ -58,13 +58,13 @@ export default function AboutScreen({ navigation }) {
       id: 8,
       name: 'MARZ',
       image: require('../../assets/robots/marz.jpg'),
-      backgroundColor: '#60a5fa',
+      backgroundColor: '#f0545c',
       description: 'Venus environment specialist'
     }
   ];
   return (
     <ScrollView style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       
       {/* Header with Back Button */}
       <View style={styles.header}>
@@ -72,7 +72,7 @@ export default function AboutScreen({ navigation }) {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Ionicons name="arrow-back" size={24} color="#000" />
+          <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>About</Text>
       </View>
@@ -119,40 +119,42 @@ export default function AboutScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#e8e9eb',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 60,
+    paddingTop: 50,
     paddingBottom: 20,
-    backgroundColor: 'white',
+    backgroundColor:'#000'
+    
   },
   backButton: {
     width: 40,
     height: 40,
-    alignItems: 'center',
+    
     justifyContent: 'center',
     marginRight: 16,
   },
   headerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
   },
    title: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#000',
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 19,
     paddingBottom: 25,
   },
   imageContainer: {
     backgroundColor: 'white',
     paddingHorizontal: 24,
-    paddingBottom: 20,
+    paddingTop: 30,
+    paddingBottom: 30,
   },
   robotImagePlaceholder: {
     backgroundColor: '#8b4513',
@@ -210,8 +212,7 @@ const styles = StyleSheet.create({
   textContainer: {
     backgroundColor: 'white',
     paddingHorizontal: 24,
-    paddingVertical: 20,
-    marginTop: 1,
+    paddingBottom: 30,
   },
   description: {
     fontSize: 16,
