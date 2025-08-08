@@ -64,6 +64,8 @@ export default function ChooseTopicScreen({ navigation }) {
     // Navigate to specific screens based on topic
     if (topic.title === 'About') {
       navigation.navigate('About');
+    } else if (topic.title === 'Reminder') {
+      navigation.navigate('Reminder');
     }
     // Add more navigation logic for other topics as needed
   };
