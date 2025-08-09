@@ -11,27 +11,36 @@ import HomeScreen from './src/screens/HomeScreen';
 import ChooseTopicScreen from './src/screens/ChooseTopicScreen';
 import AboutScreen from './src/screens/AboutScreen';
 import ReminderScreen from './src/screens/ReminderScreen';
+import ReviewsScreen from './src/screens/ReviewsScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+
+// Import context
+import { ProfileProvider } from './src/context/ProfileContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <Stack.Navigator 
-        initialRouteName="Splash"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="ChooseTopic" component={ChooseTopicScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="Reminder" component={ReminderScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ProfileProvider>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <Stack.Navigator 
+          initialRouteName="Splash"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="SignIn" component={SignInScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="ChooseTopic" component={ChooseTopicScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+          <Stack.Screen name="Reminder" component={ReminderScreen} />
+          <Stack.Screen name="Reviews" component={ReviewsScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProfileProvider>
   );
 }
