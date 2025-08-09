@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { MaterialIcons, FontAwesome5, Entypo, AntDesign } from '@expo/vector-icons';
+import { useProfile } from '../context/ProfileContext';
 
 export default function ChooseTopicScreen({ navigation }) {
+  const { profileImage } = useProfile();
   const topics = [
     {
       id: 1,
@@ -66,6 +68,8 @@ export default function ChooseTopicScreen({ navigation }) {
       navigation.navigate('About');
     } else if (topic.title === 'Reminder') {
       navigation.navigate('Reminder');
+    } else if (topic.title === 'Reviews') {
+      navigation.navigate('Reviews');
     }
     // Add more navigation logic for other topics as needed
   };
@@ -75,8 +79,22 @@ export default function ChooseTopicScreen({ navigation }) {
       <StatusBar style="auto" />
       
       {/* Header */}
-      <Text style={styles.headerText}>What brings you to the</Text>
-      <Text style={styles.appNameText}>ORION ROBOT APP ?</Text>
+      <View style={styles.header}>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerText}>What brings you to the</Text>
+          <Text style={styles.appNameText}>ORION ROBOT APP ?</Text>
+        </View>
+        <TouchableOpacity 
+          style={styles.profileButton}
+          onPress={() => navigation.navigate('Profile')}
+        >
+          {profileImage ? (
+            <Image source={{ uri: profileImage }} style={styles.profileImage} />
+          ) : (
+            <MaterialIcons name="account-circle" size={40} color="#6b7280" />
+          )}
+        </TouchableOpacity>
+      </View>
 
       {/* Topics Grid */}
       <View style={styles.topicsGrid}>
@@ -114,6 +132,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 64,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 35,
+  },
+  headerTextContainer: {
+    flex: 1,
+  },
   headerText: {
     textAlign: 'left',
     color: '#6b7280',
@@ -124,7 +151,18 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 23,
     fontWeight: 'bold',
-    marginBottom: 35,
+  },
+  profileButton: {
+    padding: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  profileImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#6b7280',
   },
   topicsGrid: {
     flexDirection: 'row',
